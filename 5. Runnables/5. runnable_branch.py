@@ -20,7 +20,7 @@ prompt2 = PromptTemplate(
 model = GoogleGenerativeAI(model="gemini-3-flash-preview", temperature=0) 
 parser = StrOutputParser()
 
-report_gen_chain = RunnableSequence(prompt1,model,parser)   
+report_gen_chain = RunnableSequence(prompt1,model,parser)     # pipe operator can also be used here instead of RunnableSequence, it will automatically create a RunnableSequence for you. it is LCEL i.e Langchain expression language.
 
 branch_chain = RunnableBranch(
     # condition , runnable if true
@@ -34,3 +34,4 @@ final_chain = RunnableSequence(report_gen_chain,branch_chain)
 result = final_chain.invoke({'topic':'Russia vs Ukraine'})
 
 print(result)
+# 
