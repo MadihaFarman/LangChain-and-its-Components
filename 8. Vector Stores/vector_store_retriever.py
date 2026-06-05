@@ -37,3 +37,6 @@ results = vector_store.similarity_search(query, k=2)
 for i, doc in enumerate(results):
     print(f"\n--- Result {i+1} ---")
     print(doc.page_content)
+
+
+###
