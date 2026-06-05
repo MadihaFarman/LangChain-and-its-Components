@@ -29,10 +29,8 @@ docs = loader.load()
 # print(docs[0].page_content)
 # print(docs[0].metadata)
 
-
 chain = prompt | model | parser
 
 result = chain.invoke({'question': 'What is Artificial Intelligence?', 'text': docs[0].page_content})
 print(result)
 # also accpets list of urls to load multiple web pages at once
-
